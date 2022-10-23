@@ -20,8 +20,7 @@ import mod_CTA_img1 from './images/mod-CTA_img1.svg';
 const assets = {
 	images: {
 		menuBar: logo,
-		header_basic_img1: header_basic_img1,
-		header_basic_img2: header_basic_img2,
+		headerBasicImages: { marker: header_basic_img1, image: header_basic_img2 },
 		mod_small_img1: mod_small_img1,
 		mod_small_img2: mod_small_img2,
 		mod_small_img3: mod_small_img3,
@@ -38,7 +37,7 @@ const assets = {
 		headerBasic: {
 			topCaption: 'Furgonetka',
 			h1Text: 'Przesyłki krajowe',
-			h1Span: 'z Furgonetką',
+			h1Span: ' z Furgonetką',
 			headerText:
 				'Nadawaj przesyłki krajowe o różnych gabarytach ze sprawdzonymi przewoźnikami – z dostawą pod drzwi, do punktów odbioru i automatów paczkowych.',
 			buttonText: 'NADAJ PRZESYŁKĘ',
