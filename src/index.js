@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.less';
+import './styles/reset.less';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
