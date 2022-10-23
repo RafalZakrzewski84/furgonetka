@@ -109,7 +109,7 @@ const assets = {
 			'Książka adresowa',
 			'Szablony przesyłek',
 		],
-		modIcons1: [
+		modIcons2: [
 			'Inne dane na etykiecie',
 			'Zamówienie paczki bez zlecania podjazdu kuriera',
 		],

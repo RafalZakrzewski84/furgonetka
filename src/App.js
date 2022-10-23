@@ -3,11 +3,12 @@
 import assets from './assets/index';
 import './App.less';
 
+import MenuBar from './components/MenuBar/MenuBar';
+
 function App() {
 	return (
 		<div className="App">
-			Hello Word
-			<img src={assets.images.mod_CTA_img1} className="App-logo" alt="logo" />
+			<MenuBar logo={assets.images.menuBar} />
 		</div>
 	);
 }

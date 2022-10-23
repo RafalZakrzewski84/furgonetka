@@ -1,0 +1,29 @@
+/** @format */
+
+@import '../../styles/variables.less';
+
+.MenuBar {
+	border-bottom: @borderBottomS;
+
+	&__container {
+		height: 90px;
+		padding: 21px 0;
+		text-align: center;
+	}
+
+	&__content {
+		padding: @paddingAppSmall;
+	}
+
+	@media (min-width: @screenDesktop) {
+		&__container {
+			width: @appContainer;
+			margin: 0 auto;
+			text-align: left;
+		}
+
+		&__content {
+			padding: @paddingApp;
+		}
+	}
+}
