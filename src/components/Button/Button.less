@@ -1,0 +1,26 @@
+/** @format */
+@import '../../styles/variables.less';
+
+.Button {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: @paddingBtn;
+	border-radius: @borderRadiusBtn;
+
+	font-family: @fontFamily2;
+	font-weight: @fontWeightL;
+	font-size: @fontSizeBtn;
+	line-height: @fontLineHeightBtn;
+
+	text-align: center;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+.Button--primary {
+	background: @colorBtnPrimary;
+	border: @borderBtnPrimary;
+	box-shadow: @boxShadowBtnPrimary;
+	color: @colorWhite;
+}

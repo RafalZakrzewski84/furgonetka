@@ -3,6 +3,8 @@
 import React from 'react';
 import './HeaderBasic.less';
 
+import Button from '../Button/Button';
+
 function HeaderBasic({ images, texts }) {
 	return (
 		<div className="HeaderBasic">
@@ -27,7 +29,7 @@ function HeaderBasic({ images, texts }) {
 								</div>
 								<p className="HeaderBasic__headerText">{texts.headerText}</p>
 							</div>
-							<button>Button</button>
+							<Button text={texts.buttonText} />
 						</div>
 					</div>
 					<div className="HeaderBasic__box">
