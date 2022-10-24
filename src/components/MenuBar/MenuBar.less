@@ -4,26 +4,11 @@
 
 .MenuBar {
 	border-bottom: @borderBottomS;
-
-	&__container {
-		height: 90px;
-		padding: 21px 0;
-		text-align: center;
-	}
-
-	&__content {
-		padding: @paddingAppSmall;
-	}
+	padding: 21px 0;
+	height: 90px;
+	text-align: center;
 
 	@media (min-width: @screenDesktop) {
-		&__container {
-			width: @appContainer;
-			margin: 0 auto;
-			text-align: left;
-		}
-
-		&__content {
-			padding: @paddingApp;
-		}
+		text-align: left;
 	}
 }

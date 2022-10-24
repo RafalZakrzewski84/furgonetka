@@ -17,7 +17,9 @@ function HeaderBasic({ images, texts }) {
 						<img src={images.marker} alt="marker" />
 						<p>{texts.headerText}</p>
 					</div>
-					<img src={images.image} alt="header basic" />
+					<div className="HeaderBasic__box">
+						<img src={images.image} alt="header basic" />
+					</div>
 				</div>
 			</div>
 		</div>

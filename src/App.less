@@ -4,3 +4,13 @@
 .App {
 	margin: 0 auto;
 }
+
+.App__container {
+	max-width: @appContainer;
+	margin: 0 auto;
+	padding: @paddingAppSmall;
+
+	@media (min-width: @screenDesktop) {
+		padding: @paddingApp;
+	}
+}

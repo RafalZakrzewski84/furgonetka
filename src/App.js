@@ -10,10 +10,12 @@ function App() {
 	return (
 		<div className="App">
 			<MenuBar logo={assets.images.menuBar} />
-			<HeaderBasic
-				images={assets.images.headerBasicImages}
-				texts={assets.texts.headerBasic}
-			/>
+			<div className="App__container">
+				<HeaderBasic
+					images={assets.images.headerBasicImages}
+					texts={assets.texts.headerBasic}
+				/>
+			</div>
 		</div>
 	);
 }
