@@ -1,1 +1,89 @@
 /** @format */
+
+@import '../../styles/variables.less';
+
+.HeaderBasic {
+	margin-top: (@spacingL / 4);
+	margin-bottom: (@spacingL / 4);
+
+	&__box-content {
+	}
+
+	&__marker {
+	}
+
+	&__img {
+		width: 100%;
+	}
+
+	@media (min-width: @screenTablet) {
+		margin-top: (@spacingL / 2);
+		margin-bottom: (@spacingL / 2);
+		&__content {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			gap: 15px;
+		}
+
+		&__box-container {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 0px;
+			gap: 24px;
+		}
+
+		&__box-content {
+			max-width: 569px;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 0px;
+			gap: 16px;
+		}
+		&__header {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 0px;
+			gap: 4px;
+			isolation: isolate;
+		}
+		&__topCaption {
+			font-weight: @fontWeightS;
+			font-size: @fontSizeTopCaption;
+		}
+		&__h1Text {
+			font-weight: @fontWeightX;
+			font-size: @fontSizeH1;
+			line-height: @fontLineHeightH12;
+			letter-spacing: -0.035em;
+		}
+		&__h1Span {
+			font-weight: @fontWeightS;
+			font-style: italic;
+		}
+		&__marker {
+			position: absolute;
+			width: 389px;
+			height: 21px;
+			left: -10px;
+			top: 156px;
+			z-index: -1;
+		}
+		&__headerText {
+			font-family: @fontFamily2;
+			font-weight: @fontWeightS;
+			font-size: @fontSizeHeaderText;
+			line-height: @fontLineHeightHeaderText;
+		}
+	}
+
+	@media (min-width: @screenDesktop) {
+		margin-top: @spacingL;
+		margin-bottom: @spacingL;
+	}
+}
