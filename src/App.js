@@ -5,6 +5,7 @@ import './App.less';
 
 import MenuBar from './components/MenuBar/MenuBar';
 import HeaderBasic from './components/HeaderBasic/HeaderBasic';
+import ModTitle from './components/ModTitle/ModTitle';
 
 function App() {
 	return (
@@ -15,6 +16,8 @@ function App() {
 					images={assets.images.headerBasicImages}
 					texts={assets.texts.headerBasic}
 				/>
+				<ModTitle type="left" texts={assets.texts.modTitle1} />
+				<ModTitle type="right" texts={assets.texts.modTitle2} />
 			</div>
 		</div>
 	);

@@ -43,7 +43,7 @@ const assets = {
 			buttonText: 'NADAJ PRZESYŁKĘ',
 		},
 		modTitle1: {
-			h2Text: 'przesyłki krajowe',
+			h2Text: ' przesyłki krajowe',
 			h2Span: 'Wybierz tanie i szybkie',
 			pText:
 				'Wyceniaj i wysyłaj tanie paczki krajowe bez podpisywania umowy i określania minimum logistycznego. U nas płacisz tylko za nadane przesyłki. Nie pobieramy abonamentu za prowadzenie konta czy korzystanie z dostępnych narzędzi.',
