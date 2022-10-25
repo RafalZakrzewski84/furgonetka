@@ -1,0 +1,39 @@
+/** @format */
+
+@import '../../styles/variables.less';
+
+.Spacing-- {
+	width: 100%;
+	&L {
+		height: (@spacingL / 4);
+	}
+	&M {
+		height: (@spacingM / 4);
+	}
+	&s {
+		height: (@spacingS / 4);
+	}
+
+	@media (min-width: @screenTablet) {
+		&L {
+			height: (@spacingL / 2);
+		}
+		&M {
+			height: (@spacingM / 2);
+		}
+		&s {
+			height: (@spacingS / 2);
+		}
+	}
+	@media (min-width: @screenDesktop) {
+		&L {
+			height: @spacingL;
+		}
+		&M {
+			height: @spacingM;
+		}
+		&s {
+			height: @spacingS;
+		}
+	}
+}
