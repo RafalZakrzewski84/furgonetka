@@ -16,9 +16,9 @@ function App() {
 					images={assets.images.headerBasicImages}
 					texts={assets.texts.headerBasic}
 				/>
-				<ModTitle type="left" texts={assets.texts.modTitle1} />
-				<ModTitle type="right" texts={assets.texts.modTitle2} />
 			</div>
+			<ModTitle type="left" texts={assets.texts.modTitle1} color="#f6fbff" />
+			<ModTitle type="right" texts={assets.texts.modTitle2} />
 		</div>
 	);
 }

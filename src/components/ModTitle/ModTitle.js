@@ -3,10 +3,11 @@
 import React from 'react';
 import './ModTitle.less';
 
-function ModTitle({ type, texts }) {
+function ModTitle({ type, texts, color }) {
 	const { h2Text, h2Span, pText } = texts;
-	let header;
 
+	//condition on which side od header is span
+	let header;
 	if (type === 'left') {
 		header = (
 			<h2 className="ModTitle__header">
@@ -23,10 +24,19 @@ function ModTitle({ type, texts }) {
 		);
 	}
 
+	//background color depend on color prop
+	let background = color
+		? { backgroundColor: color }
+		: { backgroundColor: '#ffffff' };
+
 	return (
-		<div className="ModTitle">
-			{header}
-			{pText !== '' && <p className="ModTitle__paragraph">{texts.pText}</p>}
+		<div className="ModTitle" style={background}>
+			<div className="App__container">
+				<div className="ModTitle__container">
+					{header}
+					{pText !== '' && <p className="ModTitle__paragraph">{texts.pText}</p>}
+				</div>
+			</div>
 		</div>
 	);
 }
