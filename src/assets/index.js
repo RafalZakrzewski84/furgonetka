@@ -29,8 +29,7 @@ const assets = {
 		mod_icons2: [mod_icons_icon4, mod_icons_icon5],
 		mod_points_img1: mod_points_img1,
 		mod_points_list_icon: mod_points_list_icon,
-		mod_logos_img1: mod_logos_img1,
-		mod_logos_img2: mod_logos_img2,
+		mod_logos: [mod_logos_img1, mod_logos_img2],
 		mod_CTA_img1: mod_CTA_img1,
 	},
 	texts: {

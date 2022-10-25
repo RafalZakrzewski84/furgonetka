@@ -9,6 +9,7 @@ import HeaderBasic from './components/HeaderBasic/HeaderBasic';
 import ModTitle from './components/ModTitle/ModTitle';
 import ModSmallIllustration from './components/ModSmallIllustration/ModSmallIllustration';
 import ModIcons from './components/ModIcons/ModIcons';
+import ModLogos from './components/ModLogos/ModLogos';
 
 function App() {
 	return (
@@ -68,7 +69,7 @@ function App() {
 			<Spacing type="L" />
 			<ModTitle type="right" texts={assets.texts.modTitle5} />
 			<Spacing type="S" />
-			LOGOS
+			<ModLogos logos={assets.images.mod_logos} />
 			<Spacing type="L" />
 			<Spacing type="L" />
 			MOD-CTA
