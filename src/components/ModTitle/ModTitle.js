@@ -6,7 +6,7 @@ import './ModTitle.less';
 function ModTitle({ type, texts, color }) {
 	const { h2Text, h2Span, pText } = texts;
 
-	//condition on which side od header is span
+	//condition on which side of header is span
 	let header;
 	if (type === 'left') {
 		header = (

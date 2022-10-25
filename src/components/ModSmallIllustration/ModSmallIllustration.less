@@ -1,0 +1,52 @@
+/** @format */
+
+@import '../../styles/variables.less';
+
+.ModSmallIllustration {
+	&__header {
+	}
+	&__paragraph {
+	}
+
+	&__img {
+		width: 100%;
+	}
+
+	@media (min-width: @screenTablet) {
+		&__container {
+			padding: 0 110px;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			gap: 96px;
+			margin: 0 auto;
+		}
+		&__content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			padding: 0px 0px 0px 32px;
+			gap: 16px;
+			max-width: 350px;
+		}
+		&__header {
+			font-family: @fontFamily1;
+			font-weight: @fontWeightX;
+			font-size: @fontSizeH3;
+			line-height: @fontLineHeightH3;
+		}
+		&__paragraph {
+			font-family: @fontFamily2;
+			font-weight: @fontWeightS;
+			font-size: @fontSizeP;
+			line-height: @fontLineHeightP;
+		}
+	}
+	@media (min-width: @screenDesktop) {
+		&__content {
+			max-width: 496px;
+		}
+	}
+}
