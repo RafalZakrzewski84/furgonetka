@@ -1,0 +1,40 @@
+/** @format */
+
+@import '../../styles/variables.less';
+
+.ModIcons {
+	background-color: @colorBluish;
+
+	@media (min-width: @screenTablet) {
+	}
+
+	@media (min-width: @screenDesktop) {
+		&__container {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: flex-start;
+			padding: 0px 32px;
+			gap: 16px;
+		}
+
+		&__item {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 0px;
+			gap: 24px;
+			width: 260px;
+		}
+		&__text-container {
+			text-align: center;
+		}
+		&__text {
+			font-family: @fontFamily2;
+			font-weight: @fontWeightS;
+			font-size: @fontSizeP;
+			line-height: @fontLineHeightP;
+		}
+	}
+}

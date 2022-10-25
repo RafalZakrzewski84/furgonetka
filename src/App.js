@@ -8,6 +8,7 @@ import Spacing from './components/Spacing/Spacing';
 import HeaderBasic from './components/HeaderBasic/HeaderBasic';
 import ModTitle from './components/ModTitle/ModTitle';
 import ModSmallIllustration from './components/ModSmallIllustration/ModSmallIllustration';
+import ModIcons from './components/ModIcons/ModIcons';
 
 function App() {
 	return (
@@ -50,9 +51,15 @@ function App() {
 			<Spacing type="L" color="#f6fbff" />
 			<ModTitle type="right" texts={assets.texts.modTitle3} color="#f6fbff" />
 			<Spacing type="M" color="#f6fbff" />
-			IKONY
+			<ModIcons
+				icons={assets.images.mod_icons1}
+				iconsTexts={assets.texts.modIcons1}
+			/>
 			<Spacing type="S" color="#f6fbff" />
-			IKONY
+			<ModIcons
+				icons={assets.images.mod_icons2}
+				iconsTexts={assets.texts.modIcons2}
+			/>
 			<Spacing type="L" color="#f6fbff" />
 			<ModTitle type="left" texts={assets.texts.modTitle4} color="#f6fbff" />
 			<Spacing type="S" color="#f6fbff" />
