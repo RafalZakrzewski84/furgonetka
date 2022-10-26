@@ -8,7 +8,11 @@
 .App__container {
 	max-width: @appContainer;
 	margin: 0 auto;
-	padding: @paddingAppSmall;
+	padding: @paddingAppMobile;
+
+	@media (min-width: @screenTablet) {
+		padding: @paddingAppTablet;
+	}
 
 	@media (min-width: @screenDesktop) {
 		padding: @paddingApp;

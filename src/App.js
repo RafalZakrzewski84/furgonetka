@@ -12,6 +12,7 @@ import ModIcons from './components/ModIcons/ModIcons';
 import ModPoints from './components/ModPoints/ModPoints';
 import ModLogos from './components/ModLogos/ModLogos';
 import ModCTA from './components/ModCTA/ModCTA';
+import ModContactForm from './components/ModContactForm/ModContactForm';
 
 function App() {
 	return (
@@ -79,7 +80,7 @@ function App() {
 			<Spacing type="L" />
 			<ModCTA images={assets.images.mod_CTA_img1} texts={assets.texts.modCTA} />
 			<Spacing type="L" color="#f6fbff" />
-			FORM
+			<ModContactForm texts={assets.texts.modContactForm} />
 			<Spacing type="L" color="#f6fbff" />
 			<Spacing type="L" color="#f6fbff" />
 		</div>
