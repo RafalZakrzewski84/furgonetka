@@ -1,0 +1,52 @@
+/** @format */
+
+@import '../../styles/variables.less';
+
+.ModPoints {
+	background-color: @colorBluish;
+	margin: 0 auto;
+
+	&__img {
+		width: 100%;
+	}
+
+	@media (min-width: @screenTablet) {
+		&__container {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 60px;
+			margin: 0 auto;
+		}
+		&__content {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 16px;
+			max-width: 480px;
+		}
+		&__item {
+			display: flex;
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 15px;
+		}
+		&__text {
+			font-family: @fontFamily2;
+			font-weight: @fontWeightS;
+			font-size: @fontSizeP;
+			line-height: @fontLineHeightP;
+			display: inline;
+		}
+		&__icon-container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 5px;
+		}
+	}
+
+	@media (min-width: @screenDesktop) {
+	}
+}

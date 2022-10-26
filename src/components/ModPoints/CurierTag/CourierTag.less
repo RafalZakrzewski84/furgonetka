@@ -1,0 +1,45 @@
+/** @format */
+
+@import '../../../styles/variables.less';
+
+.CourierTag {
+	&--inpost {
+		background-color: @colorIconYellow;
+	}
+	&--dhl {
+		background-color: @colorIconYellow;
+		color: @textColor3;
+	}
+	&--dpd,
+	&--poczte {
+		background-color: @colorIconRed;
+		color: @colorWhite;
+	}
+
+	&--deligo {
+		background-color: @colorIconBlue;
+		color: @colorWhite;
+	}
+	&--xpress {
+		background-color: @colorIconBlack;
+		color: @colorWhite;
+	}
+
+	@media (min-width: @screenTablet) {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding: 0px 8px;
+		border-radius: @borderRadiusIcon;
+
+		&__text {
+			font-family: @fontFamily2;
+			font-weight: @fontWeightL;
+			font-size: @fontSizeIcon;
+			line-height: @fontLineHeightIcon;
+		}
+	}
+	@media (min-width: @screenDesktop) {
+	}
+}

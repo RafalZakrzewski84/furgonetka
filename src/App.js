@@ -9,6 +9,7 @@ import HeaderBasic from './components/HeaderBasic/HeaderBasic';
 import ModTitle from './components/ModTitle/ModTitle';
 import ModSmallIllustration from './components/ModSmallIllustration/ModSmallIllustration';
 import ModIcons from './components/ModIcons/ModIcons';
+import ModPoints from './components/ModPoints/ModPoints';
 import ModLogos from './components/ModLogos/ModLogos';
 
 function App() {
@@ -64,7 +65,10 @@ function App() {
 			<Spacing type="L" color="#f6fbff" />
 			<ModTitle type="left" texts={assets.texts.modTitle4} color="#f6fbff" />
 			<Spacing type="S" color="#f6fbff" />
-			MOD-POINTS
+			<ModPoints
+				images={assets.images.mod_points_images}
+				texts={assets.texts.modPointsList}
+			/>
 			<Spacing type="L" color="#f6fbff" />
 			<Spacing type="L" />
 			<ModTitle type="right" texts={assets.texts.modTitle5} />
