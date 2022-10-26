@@ -118,6 +118,20 @@ const assets = {
 			'Doręczenie we wskazany dzień',
 			'Przesyłka ekspresowa',
 		],
+		modCTA: {
+			h1Text: 'Furgonetka – tu znajdziesz ',
+			h1Span: 'najtańsze przesyłki krajowe',
+			headerText:
+				'Skorzystaj z bezpłatnego formularza i zamów wysyłkę swojej paczki w niskiej cenie.',
+			buttonText: 'NADAJ PRZESYŁKĘ',
+		},
+		modContactForm: {
+			h2Text: 'Zapytaj o ',
+			h2Span: 'ofertę indywidualną',
+			pText:
+				'Nadajesz dużo przesyłek kurierskich krajowych? Napisz do nas, a oddzwonimy, żeby porozmawiać o indywidualnej ofercie.',
+			buttonText: 'WYŚLIJ SWÓJ KONTAKT',
+		},
 	},
 };
 
