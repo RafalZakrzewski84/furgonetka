@@ -32,7 +32,7 @@ function HeaderBasic({ images, texts }) {
 									</div>
 									<p className="HeaderBasic__headerText">{texts.headerText}</p>
 								</div>
-								<Button text={texts.buttonText} />
+								<Button text={texts.buttonText} type="primary" />
 							</div>
 						</div>
 						<div className="HeaderBasic__box">
