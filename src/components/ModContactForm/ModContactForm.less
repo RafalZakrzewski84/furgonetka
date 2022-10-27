@@ -19,18 +19,11 @@
 			.flexColumnWithGap(16px);
 			text-align: center;
 		}
-		&__content-msg-sent {
-			margin: 50px 0;
-			text-align: center;
-		}
 		&__header {
 			font-family: @fontFamily1;
 			font-weight: @fontWeightM;
 			font-size: @fontSizeH2;
 			line-height: @fontLineHeightH12;
-		}
-		&__span {
-			font-style: italic;
 		}
 		&__paragraph {
 			font-family: @fontFamily2;
@@ -50,8 +43,7 @@
 			.flexColumnWithGap(8px);
 			align-items: flex-start;
 		}
-		&__label,
-		&__error-text {
+		&__label {
 			font-family: @fontFamily2;
 			font-weight: @fontSizeLabel;
 			font-size: @fontWeightLabel;
@@ -73,12 +65,34 @@
 		}
 		&__input--message {
 			height: 321px;
+			padding: 10px 20px 10px 16px;
 		}
 		&__input--error {
 			border: @borderInputErr;
 		}
 		&__error-text {
 			color: @colorRedish;
+		}
+		&__content-msg-sent {
+			background-color: @colorWhite;
+			margin: 50px 0;
+			padding: 100px;
+			text-align: center;
+			border: @borderInput;
+			border-radius: @borderRadiusBtn;
+			box-shadow: @boxShadowBtnPrimary;
+			position: relative;
+		}
+		&__close-msg-sent {
+			position: absolute;
+			top: 10px;
+			left: 638px;
+			font-size: (@fontSizeP * 2);
+			cursor: pointer;
+
+			&:active {
+				transform: scale(0.98);
+			}
 		}
 	}
 

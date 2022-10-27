@@ -30,7 +30,8 @@ function ModContactForm({ texts }) {
 		const email = data.get('email');
 
 		const phoneRegExp =
-			/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+			/^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+		const emailRegExp = /^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/g;
 
 		let err = false;
 		if (phone === '') {
@@ -57,6 +58,11 @@ function ModContactForm({ texts }) {
 			err = true;
 			setFormError(true);
 			setMailErrText('Uzupełnij proszę adres email');
+		}
+		if (!emailRegExp.test(email)) {
+			err = true;
+			setFormError(true);
+			setMailErrText('Podaj proszę własciwy adres email');
 		}
 		if (err) return;
 
@@ -88,7 +94,11 @@ function ModContactForm({ texts }) {
 										</label>
 										<div className="ModContactForm__input-holder">
 											<input
-												className="ModContactForm__input ModContactForm__input--error "
+												className={
+													phoneErrText
+														? 'ModContactForm__input ModContactForm__input--error'
+														: 'ModContactForm__input'
+												}
 												id="phone"
 												type="tel"
 												name="phone"
@@ -106,7 +116,11 @@ function ModContactForm({ texts }) {
 										</label>
 										<div className="ModContactForm__input-holder">
 											<input
-												className="ModContactForm__input"
+												className={
+													nameErrText
+														? 'ModContactForm__input ModContactForm__input--error'
+														: 'ModContactForm__input'
+												}
 												id="name"
 												type="text"
 												name="name"
@@ -124,7 +138,11 @@ function ModContactForm({ texts }) {
 										</label>
 										<div className="ModContactForm__input-holder">
 											<input
-												className="ModContactForm__input"
+												className={
+													companyErrText
+														? 'ModContactForm__input ModContactForm__input--error'
+														: 'ModContactForm__input'
+												}
 												id="company"
 												type="text"
 												name="company"
@@ -142,7 +160,11 @@ function ModContactForm({ texts }) {
 										</label>
 										<div className="ModContactForm__input-holder">
 											<input
-												className="ModContactForm__input"
+												className={
+													mailErrText
+														? 'ModContactForm__input ModContactForm__input--error'
+														: 'ModContactForm__input'
+												}
 												id="email"
 												type="email"
 												name="email"
@@ -159,10 +181,12 @@ function ModContactForm({ texts }) {
 											Widamość (opcjonalnie)
 										</label>
 										<div className="ModContactForm__input-holder">
-											<input
+											<textarea
 												className="ModContactForm__input ModContactForm__input--message"
 												id="company"
-												type="text"
+												type="textarea"
+												rows="4"
+												cols="50"
 												name="company"
 											/>
 										</div>
@@ -177,10 +201,13 @@ function ModContactForm({ texts }) {
 						<div className="ModContactForm__content-msg-sent">
 							<h2 className="ModContactForm__header">Wiadomość Wysłana</h2>
 							<p className="ModContactForm__paragraph">
-								Wkrótce się z Tobą skontaktujemy, żeby porozmawiać o
-								indywidualnej ofercie.
+								Wkrótce się z Tobą skontaktujemy, żeby porozmawiać o ofercie.
 							</p>
-							<p onClick={handleClick}>Close</p>
+							<p
+								className="ModContactForm__close-msg-sent"
+								onClick={handleClick}>
+								<i class="fa-solid fa-rectangle-xmark"></i>
+							</p>
 						</div>
 					)}
 				</div>
