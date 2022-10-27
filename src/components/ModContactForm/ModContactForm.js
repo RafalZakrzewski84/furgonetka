@@ -3,21 +3,25 @@
 import React from 'react';
 import { useState } from 'react';
 import Button from '../Button/Button';
+import Input from '../Input/Input';
+import Textarea from '../Textarea/Textarea';
 
 import './ModContactForm.less';
 
 function ModContactForm({ texts }) {
 	const [formSent, setFormSent] = useState(false);
-	const [formError, setFormError] = useState(false);
 	const [phoneErrText, setPhoneErrText] = useState('');
+	const [phoneNoErrorClass, setPhoneNoErrorClass] = useState('');
 	const [nameErrText, setNameErrText] = useState('');
+	const [nameNoErrorClass, setNameNoErrorClass] = useState('');
 	const [companyErrText, setCompanyErrText] = useState('');
+	const [companyNoErrorClass, setCompanyNoErrorClass] = useState('');
 	const [mailErrText, setMailErrText] = useState('');
+	const [mailNoErrorClass, setMailNoErrorClass] = useState('');
 
 	function handleSubmit(evt) {
 		evt.preventDefault();
 		setFormSent(false);
-		setFormError(false);
 		setPhoneErrText('');
 		setNameErrText('');
 		setCompanyErrText('');
@@ -36,37 +40,34 @@ function ModContactForm({ texts }) {
 		let err = false;
 		if (phone === '') {
 			err = true;
-			setFormError(true);
 			setPhoneErrText('Uzupełnij proszę numer telefonu');
 		}
 		if (!phoneRegExp.test(phone)) {
 			err = true;
-			setFormError(true);
 			setPhoneErrText('Format nr telefonu +XXXXXXXXXXX');
 		}
 		if (name === '') {
 			err = true;
-			setFormError(true);
 			setNameErrText('Podaj proszę swoje imię');
 		}
 		if (company === '') {
 			err = true;
-			setFormError(true);
 			setCompanyErrText('Podaj proszę swoje nazwisko lub nazwę firmy');
 		}
 		if (email === '') {
 			err = true;
-			setFormError(true);
 			setMailErrText('Uzupełnij proszę adres email');
 		}
 		if (!emailRegExp.test(email)) {
 			err = true;
-			setFormError(true);
 			setMailErrText('Podaj proszę własciwy adres email');
 		}
 		if (err) return;
-
 		setFormSent(true);
+		setPhoneNoErrorClass('');
+		setNameNoErrorClass('');
+		setCompanyNoErrorClass('');
+		setMailNoErrorClass('');
 	}
 
 	function handleClick() {
@@ -88,109 +89,43 @@ function ModContactForm({ texts }) {
 						<form onSubmit={handleSubmit}>
 							<div className="ModContactForm__form">
 								<div className="ModContactForm__inputs">
-									<div className="ModContactForm__input-item">
-										<label className="ModContactForm__label" htmlFor="phone">
-											Twój numer telefonu
-										</label>
-										<div className="ModContactForm__input-holder">
-											<input
-												className={
-													phoneErrText
-														? 'ModContactForm__input ModContactForm__input--error'
-														: 'ModContactForm__input'
-												}
-												id="phone"
-												type="tel"
-												name="phone"
-											/>
-											{formError && (
-												<p className="ModContactForm__error-text">
-													{phoneErrText}
-												</p>
-											)}
-										</div>
-									</div>
-									<div className="ModContactForm__input-item">
-										<label className="ModContactForm__label" htmlFor="name">
-											Twój Imię
-										</label>
-										<div className="ModContactForm__input-holder">
-											<input
-												className={
-													nameErrText
-														? 'ModContactForm__input ModContactForm__input--error'
-														: 'ModContactForm__input'
-												}
-												id="name"
-												type="text"
-												name="name"
-											/>
-											{formError && (
-												<p className="ModContactForm__error-text">
-													{nameErrText}
-												</p>
-											)}
-										</div>
-									</div>
-									<div className="ModContactForm__input-item">
-										<label className="ModContactForm__label" htmlFor="company">
-											Twój nazwisko / nazwa firmy
-										</label>
-										<div className="ModContactForm__input-holder">
-											<input
-												className={
-													companyErrText
-														? 'ModContactForm__input ModContactForm__input--error'
-														: 'ModContactForm__input'
-												}
-												id="company"
-												type="text"
-												name="company"
-											/>
-											{formError && (
-												<p className="ModContactForm__error-text">
-													{companyErrText}
-												</p>
-											)}
-										</div>
-									</div>
-									<div className="ModContactForm__input-item">
-										<label className="ModContactForm__label" htmlFor="email">
-											Twój adres e-mail
-										</label>
-										<div className="ModContactForm__input-holder">
-											<input
-												className={
-													mailErrText
-														? 'ModContactForm__input ModContactForm__input--error'
-														: 'ModContactForm__input'
-												}
-												id="email"
-												type="email"
-												name="email"
-											/>
-											{formError && (
-												<p className="ModContactForm__error-text">
-													{mailErrText}
-												</p>
-											)}
-										</div>
-									</div>
-									<div className="ModContactForm__input-item">
-										<label className="ModContactForm__label" htmlFor="company">
-											Widamość (opcjonalnie)
-										</label>
-										<div className="ModContactForm__input-holder">
-											<textarea
-												className="ModContactForm__input ModContactForm__input--message"
-												id="company"
-												type="textarea"
-												rows="4"
-												cols="50"
-												name="company"
-											/>
-										</div>
-									</div>
+									<Input
+										label="Twój numer telefonu"
+										type="tel"
+										id="phone"
+										errText={phoneErrText}
+										reset={setPhoneErrText}
+										noErrorClass={phoneNoErrorClass}
+										setNoErrorClass={setPhoneNoErrorClass}
+									/>
+									<Input
+										label="Twój Imię"
+										type="text"
+										id="name"
+										errText={nameErrText}
+										reset={setNameErrText}
+										noErrorClass={nameNoErrorClass}
+										setNoErrorClass={setNameNoErrorClass}
+									/>
+									<Input
+										label="Twój nazwisko / nazwa firmy"
+										type="text"
+										id="company"
+										errText={companyErrText}
+										reset={setCompanyErrText}
+										noErrorClass={companyNoErrorClass}
+										setNoErrorClass={setCompanyNoErrorClass}
+									/>
+									<Input
+										label="Twój adres e-mail"
+										type="email"
+										id="email"
+										errText={mailErrText}
+										reset={setMailErrText}
+										noErrorClass={mailNoErrorClass}
+										setNoErrorClass={setMailNoErrorClass}
+									/>
+									<Textarea label="Widamość (opcjonalnie)" id="wiadomosc" />
 								</div>
 								<div className="ModContactForm__button-container">
 									<Button text={texts.buttonText} type="secondary" />
