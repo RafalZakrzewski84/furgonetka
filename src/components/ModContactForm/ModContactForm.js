@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import Textarea from '../Textarea/Textarea';
@@ -9,68 +9,140 @@ import Textarea from '../Textarea/Textarea';
 import './ModContactForm.less';
 
 function ModContactForm({ texts }) {
+	const [form, setForm] = useState({
+		phone: undefined,
+		name: undefined,
+		company: undefined,
+		email: undefined,
+		message: undefined,
+	});
 	const [formSent, setFormSent] = useState(false);
+	const [noFormErr, setNoFormError] = useState(false);
 	const [phoneErrText, setPhoneErrText] = useState('');
-	const [phoneNoErrorClass, setPhoneNoErrorClass] = useState('');
+	const [phoneToggleClass, setPhoneToggleClass] = useState('initial');
 	const [nameErrText, setNameErrText] = useState('');
-	const [nameNoErrorClass, setNameNoErrorClass] = useState('');
+	const [nameToggleClass, setNameToggleClass] = useState('initial');
 	const [companyErrText, setCompanyErrText] = useState('');
-	const [companyNoErrorClass, setCompanyNoErrorClass] = useState('');
+	const [companyToggleClass, setCompanyToggleClass] = useState('initial');
 	const [mailErrText, setMailErrText] = useState('');
-	const [mailNoErrorClass, setMailNoErrorClass] = useState('');
+	const [mailToggleClass, setMailToggleClass] = useState('initial');
+
+	useEffect(() => {
+		//validation based on input change
+		// let err = false;
+		//phone validation
+		if (form.phone === '') {
+			// err = true;
+			setPhoneErrText('wpisz numer telefonu');
+			setPhoneToggleClass('invalid');
+		} else if (form.phone !== '' && form.phone !== undefined) {
+			setPhoneErrText('');
+			setPhoneToggleClass('valid');
+		}
+
+		//name validation
+		if (form.name === '') {
+			// err = true;
+			setNameErrText('wpisz imię');
+			setNameToggleClass('invalid');
+		} else if (form.name !== '' && form.name !== undefined) {
+			setNameErrText('');
+			setNameToggleClass('valid');
+		}
+
+		//company validation
+		if (form.company === '') {
+			// err = true;
+			setCompanyErrText('wpisz nazwisko/nazwę firmy');
+			setCompanyToggleClass('invalid');
+		} else if (form.company !== '' && form.company !== undefined) {
+			setCompanyErrText('');
+			setCompanyToggleClass('valid');
+		}
+
+		//email validation
+		const emailRegExp =
+			/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/;
+		if (form.email === '') {
+			// err = true;
+			setMailErrText('wpisz email');
+			setMailToggleClass('invalid');
+		} else if (form.email !== undefined && !emailRegExp.test(form.email)) {
+			// err = true;
+			setMailErrText('wpisz prawidłowy mail');
+			setMailToggleClass('invalid');
+		} else if (form.email !== '' && emailRegExp.test(form.email)) {
+			setMailErrText('');
+			setMailToggleClass('valid');
+		}
+	}, [form]);
 
 	function handleSubmit(evt) {
 		evt.preventDefault();
-		setFormSent(false);
-		setPhoneErrText('');
-		setNameErrText('');
-		setCompanyErrText('');
-		setMailErrText('');
 
-		const data = new FormData(evt.target);
-		const phone = data.get('phone');
-		const name = data.get('name');
-		const company = data.get('company');
-		const email = data.get('email');
-
-		const phoneRegExp =
-			/^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
-		const emailRegExp = /^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/g;
-
+		//validation on submit form
 		let err = false;
-		if (phone === '') {
+		//phone validation
+		if (form.phone === undefined || form.phone === '') {
 			err = true;
-			setPhoneErrText('Uzupełnij proszę numer telefonu');
+			setPhoneErrText('wpisz numer telefonu');
+			setPhoneToggleClass('invalid');
 		}
-		if (!phoneRegExp.test(phone)) {
+
+		//name validation
+		if (form.name === undefined || form.name === '') {
 			err = true;
-			setPhoneErrText('Format nr telefonu +XXXXXXXXXXX');
+			setNameErrText('wpisz imię');
+			setNameToggleClass('invalid');
 		}
-		if (name === '') {
+
+		//company validation
+		if (form.company === undefined || form.company === '') {
 			err = true;
-			setNameErrText('Podaj proszę swoje imię');
+			setCompanyErrText('wpisz nazwisko/nazwę firmy');
+			setCompanyToggleClass('invalid');
+		} else if (form.company !== '' && form.company !== undefined) {
+			setCompanyErrText('');
+			setCompanyToggleClass('valid');
 		}
-		if (company === '') {
+
+		//email validation
+		if (form.email === undefined || form.email === '') {
 			err = true;
-			setCompanyErrText('Podaj proszę swoje nazwisko lub nazwę firmy');
+			setMailErrText('wpisz email');
+			setMailToggleClass('invalid');
 		}
-		if (email === '') {
-			err = true;
-			setMailErrText('Uzupełnij proszę adres email');
-		}
-		if (!emailRegExp.test(email)) {
-			err = true;
-			setMailErrText('Podaj proszę własciwy adres email');
-		}
+
+		console.log('submit', err);
+		//if validation error prevent submit form
 		if (err) return;
+
+		//if validation passed show message box
 		setFormSent(true);
-		setPhoneNoErrorClass('');
-		setNameNoErrorClass('');
-		setCompanyNoErrorClass('');
-		setMailNoErrorClass('');
+
+		//reset form states
+		setForm({
+			phone: undefined,
+			name: undefined,
+			company: undefined,
+			email: undefined,
+			message: undefined,
+		});
+		setNoFormError(false);
+		setPhoneErrText('');
+		setPhoneToggleClass('initial');
+		setNameErrText('');
+		setNameToggleClass('initial');
+		setCompanyErrText('');
+		setCompanyToggleClass('initial');
+		setMailErrText('');
+		setMailToggleClass('initial');
 	}
 
-	function handleClick() {
+	function handleClick(evt) {
+		evt.preventDefault();
+
+		//closing message box
 		setFormSent(false);
 	}
 
@@ -94,38 +166,38 @@ function ModContactForm({ texts }) {
 										type="tel"
 										id="phone"
 										errText={phoneErrText}
-										reset={setPhoneErrText}
-										noErrorClass={phoneNoErrorClass}
-										setNoErrorClass={setPhoneNoErrorClass}
+										toggleClass={phoneToggleClass}
+										setValue={form.phone}
+										setForm={setForm}
 									/>
 									<Input
 										label="Twój Imię"
 										type="text"
 										id="name"
 										errText={nameErrText}
-										reset={setNameErrText}
-										noErrorClass={nameNoErrorClass}
-										setNoErrorClass={setNameNoErrorClass}
+										toggleClass={nameToggleClass}
+										setValue={form.name}
+										setForm={setForm}
 									/>
 									<Input
 										label="Twój nazwisko / nazwa firmy"
 										type="text"
 										id="company"
 										errText={companyErrText}
-										reset={setCompanyErrText}
-										noErrorClass={companyNoErrorClass}
-										setNoErrorClass={setCompanyNoErrorClass}
+										toggleClass={companyToggleClass}
+										setValue={form.company}
+										setForm={setForm}
 									/>
 									<Input
 										label="Twój adres e-mail"
 										type="email"
 										id="email"
 										errText={mailErrText}
-										reset={setMailErrText}
-										noErrorClass={mailNoErrorClass}
-										setNoErrorClass={setMailNoErrorClass}
+										toggleClass={mailToggleClass}
+										setValue={form.email}
+										setForm={setForm}
 									/>
-									<Textarea label="Widamość (opcjonalnie)" id="wiadomosc" />
+									<Textarea label="Widamość (opcjonalnie)" id="message" />
 								</div>
 								<div className="ModContactForm__button-container">
 									<Button text={texts.buttonText} type="secondary" />
@@ -141,7 +213,7 @@ function ModContactForm({ texts }) {
 							<p
 								className="ModContactForm__close-msg-sent"
 								onClick={handleClick}>
-								<i class="fa-solid fa-rectangle-xmark"></i>
+								<i className="fa-solid fa-rectangle-xmark"></i>
 							</p>
 						</div>
 					)}

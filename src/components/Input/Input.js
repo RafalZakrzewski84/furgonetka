@@ -3,34 +3,38 @@
 import React from 'react';
 import './Input.less';
 
-function Input({
-	label,
-	type,
-	id,
-	errText,
-	reset,
-	noErrorClass,
-	setNoErrorClass,
-}) {
+function Input({ label, type, id, errText, toggleClass, setValue, setForm }) {
+	//setting class of
+	let inputClassName = 'Input__input';
+	if (toggleClass === 'invalid') {
+		inputClassName = 'Input__input Input__input--error';
+	} else if (toggleClass === 'valid') {
+		inputClassName = 'Input__input Input__input--noError';
+	}
+
+	function handleBlur(evt) {
+		evt.preventDefault();
+		const { name } = evt.target;
+		if (setValue === undefined) {
+			setForm((prevState) => {
+				return {
+					...prevState,
+					[name]: '',
+				};
+			});
+		}
+	}
+
 	function handleChange(evt) {
-		console.log(evt.target.value);
+		evt.preventDefault();
+		const { name, value } = evt.target;
 
-		let inputValue = evt.target.value;
-		const phoneRegExp = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{3}$/;
-		const emailRegExp = /^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/g;
-
-		if (type === 'tel' && phoneRegExp.test(inputValue)) {
-			setNoErrorClass('Input__input--noError');
-			reset('');
-		}
-		if (type === 'text' && inputValue !== '') {
-			setNoErrorClass('Input__input--noError');
-			reset('');
-		}
-		if (type === 'email' && emailRegExp.test(inputValue)) {
-			setNoErrorClass('Input__input--noError');
-			reset('');
-		}
+		setForm((prevState) => {
+			return {
+				...prevState,
+				[name]: value,
+			};
+		});
 	}
 
 	return (
@@ -40,15 +44,13 @@ function Input({
 			</label>
 			<div className="Input__input-holder">
 				<input
-					className={
-						errText || noErrorClass
-							? `Input__input Input__input--error ${noErrorClass}`
-							: 'Input__input'
-					}
+					className={inputClassName}
 					id={id}
 					type={type}
 					name={id}
 					onChange={handleChange}
+					onBlur={handleBlur}
+					value={setValue}
 				/>
 				{errText && <p className="Input__error-text">{errText}</p>}
 			</div>
