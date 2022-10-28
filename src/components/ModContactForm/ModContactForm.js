@@ -14,10 +14,9 @@ function ModContactForm({ texts }) {
 		name: undefined,
 		company: undefined,
 		email: undefined,
-		message: undefined,
+		message: '',
 	});
 	const [formSent, setFormSent] = useState(false);
-	const [noFormErr, setNoFormError] = useState(false);
 	const [phoneErrText, setPhoneErrText] = useState('');
 	const [phoneToggleClass, setPhoneToggleClass] = useState('initial');
 	const [nameErrText, setNameErrText] = useState('');
@@ -29,7 +28,6 @@ function ModContactForm({ texts }) {
 
 	useEffect(() => {
 		//validation based on input change
-		// let err = false;
 		//phone validation
 		if (form.phone === '') {
 			// err = true;
@@ -42,7 +40,6 @@ function ModContactForm({ texts }) {
 
 		//name validation
 		if (form.name === '') {
-			// err = true;
 			setNameErrText('wpisz imię');
 			setNameToggleClass('invalid');
 		} else if (form.name !== '' && form.name !== undefined) {
@@ -52,7 +49,6 @@ function ModContactForm({ texts }) {
 
 		//company validation
 		if (form.company === '') {
-			// err = true;
 			setCompanyErrText('wpisz nazwisko/nazwę firmy');
 			setCompanyToggleClass('invalid');
 		} else if (form.company !== '' && form.company !== undefined) {
@@ -64,11 +60,9 @@ function ModContactForm({ texts }) {
 		const emailRegExp =
 			/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/;
 		if (form.email === '') {
-			// err = true;
 			setMailErrText('wpisz email');
 			setMailToggleClass('invalid');
 		} else if (form.email !== undefined && !emailRegExp.test(form.email)) {
-			// err = true;
 			setMailErrText('wpisz prawidłowy mail');
 			setMailToggleClass('invalid');
 		} else if (form.email !== '' && emailRegExp.test(form.email)) {
@@ -120,15 +114,18 @@ function ModContactForm({ texts }) {
 		//if validation passed show message box
 		setFormSent(true);
 
+		//data form form ready to send to server
+		const formData = { ...form };
+		console.log(formData);
+
 		//reset form states
 		setForm({
 			phone: undefined,
 			name: undefined,
 			company: undefined,
 			email: undefined,
-			message: undefined,
+			message: '',
 		});
-		setNoFormError(false);
 		setPhoneErrText('');
 		setPhoneToggleClass('initial');
 		setNameErrText('');
@@ -197,7 +194,12 @@ function ModContactForm({ texts }) {
 										setValue={form.email}
 										setForm={setForm}
 									/>
-									<Textarea label="Widamość (opcjonalnie)" id="message" />
+									<Textarea
+										label="Widamość (opcjonalnie)"
+										id="message"
+										setValue={form.message}
+										setForm={setForm}
+									/>
 								</div>
 								<div className="ModContactForm__button-container">
 									<Button text={texts.buttonText} type="secondary" />

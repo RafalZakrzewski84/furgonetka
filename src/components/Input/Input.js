@@ -4,7 +4,7 @@ import React from 'react';
 import './Input.less';
 
 function Input({ label, type, id, errText, toggleClass, setValue, setForm }) {
-	//setting class of
+	//setting class of input
 	let inputClassName = 'Input__input';
 	if (toggleClass === 'invalid') {
 		inputClassName = 'Input__input Input__input--error';

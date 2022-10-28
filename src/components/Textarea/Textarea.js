@@ -3,9 +3,17 @@
 import React from 'react';
 import './Textarea.less';
 
-function Textarea({ label, id, errText, formError }) {
+function Textarea({ label, id, setValue, setForm }) {
 	function handleChange(evt) {
-		console.log(evt.target.value);
+		evt.preventDefault();
+		const { name, value } = evt.target;
+
+		setForm((prevState) => {
+			return {
+				...prevState,
+				[name]: value,
+			};
+		});
 	}
 
 	return (
@@ -15,14 +23,14 @@ function Textarea({ label, id, errText, formError }) {
 			</label>
 			<div className="Textarea__input-holder">
 				<textarea
-					onChange={handleChange}
 					className="Textarea__input Textarea__input--message"
 					id={id}
+					name={id}
+					value={setValue}
+					onChange={handleChange}
 					rows="1"
 					cols="50"
-					name={id}
 				/>
-				{formError && <p className="Textarea__error-text">{errText}</p>}
 			</div>
 		</div>
 	);
