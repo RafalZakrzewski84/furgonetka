@@ -3,10 +3,17 @@
 @import '../../styles/variables.less';
 
 .MenuBar {
+	background-color: @colorWhite;
 	border-bottom: @borderBottomS;
 	padding: 21px 0;
 	height: 90px;
 	text-align: center;
+	position: sticky;
+	top: 0;
+
+	@media (min-width: @screenTablet) {
+		position: static;
+	}
 
 	@media (min-width: @screenDesktop) {
 		text-align: left;

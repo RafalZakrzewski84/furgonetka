@@ -3,23 +3,37 @@
 @import '../../styles/variables.less';
 
 .ModSmallIllustration {
+	margin: 10px 0;
 	&__header {
+		font-family: @fontFamily1;
+		font-size: (@fontSizeH3 - 5px);
+		line-height: @fontLineHeightH3;
+		text-align: center;
+		margin-bottom: 5px;
 	}
 	&__paragraph {
+		text-align: center;
+		padding-bottom: 20px;
+		font-family: @fontFamily2;
+		font-weight: @fontWeightS;
+		font-size: @fontSizeP;
+		line-height: (@fontLineHeightP - 30%);
 	}
 
 	&__img {
-		width: 100%;
+		display: block;
+		margin: 0 auto;
+		width: 60%;
 	}
 
 	@media (min-width: @screenTablet) {
 		&__container {
-			padding: 0 110px;
+			padding: 0 50px;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
 			justify-content: center;
-			gap: 96px;
+			gap: 116px;
 			margin: 0 auto;
 		}
 		&__content {
@@ -29,22 +43,31 @@
 			align-items: flex-start;
 			padding: 0px 0px 0px 32px;
 			gap: 16px;
-			max-width: 350px;
+			max-width: 390px;
 		}
 		&__header {
 			font-family: @fontFamily1;
 			font-weight: @fontWeightX;
 			font-size: @fontSizeH3;
 			line-height: @fontLineHeightH3;
+			text-align: left;
+			margin-bottom: 0;
 		}
 		&__paragraph {
 			font-family: @fontFamily2;
 			font-weight: @fontWeightS;
 			font-size: @fontSizeP;
 			line-height: @fontLineHeightP;
+			text-align: left;
+		}
+		&__img {
+			width: 100%;
 		}
 	}
 	@media (min-width: @screenDesktop) {
+		&__container {
+			padding: 0 110px;
+		}
 		&__content {
 			max-width: 496px;
 		}

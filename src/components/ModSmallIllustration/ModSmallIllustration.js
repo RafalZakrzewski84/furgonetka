@@ -20,7 +20,7 @@ function ModSmallIllustration({ type, image, texts, color }) {
 				</div>
 				<div className="ModSmallIllustration__content">
 					<h3 className="ModSmallIllustration__header">{h3Text}</h3>
-					<p>{pText}</p>
+					<p className="ModSmallIllustration__paragraph">{pText}</p>
 				</div>
 			</>
 		);
@@ -29,7 +29,7 @@ function ModSmallIllustration({ type, image, texts, color }) {
 			<>
 				<div className="ModSmallIllustration__content">
 					<h3 className="ModSmallIllustration__header">{h3Text}</h3>
-					<p>{pText}</p>
+					<p className="ModSmallIllustration__paragraph">{pText}</p>
 				</div>
 				<div className="ModSmallIllustration__img-container">
 					<img

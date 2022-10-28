@@ -3,12 +3,27 @@
 @import '../../styles/variables.less';
 
 .ModTitle {
+	&__Container {
+		text-align: center;
+	}
 	&__header {
+		font-family: @fontFamily1;
+		font-weight: @fontWeightM;
+		font-size: @fontSizeH2Small;
+		line-height: @fontLineHeightH12;
+		text-align: center;
+		margin-bottom: 10px;
 	}
 	&__span {
 		font-style: italic;
 	}
 	&__paragraph {
+		text-align: center;
+		padding-bottom: 20px;
+		font-family: @fontFamily2;
+		font-weight: @fontWeightS;
+		font-size: @fontSizeP;
+		line-height: (@fontLineHeightP - 30%);
 	}
 
 	@media (min-width: @screenTablet) {
@@ -20,26 +35,25 @@
 			padding: 0px;
 			gap: 16px;
 			margin: 0 auto;
-			text-align: center;
 		}
 		&__header {
-			font-family: @fontFamily1;
-			font-weight: @fontWeightM;
-			font-size: @fontSizeH2;
+			font-size: @fontSizeH2Small;
 			line-height: @fontLineHeightH12;
 			max-width: 940px;
-		}
-		&__span {
-			font-style: italic;
+			margin-bottom: 0;
 		}
 		&__paragraph {
-			font-family: @fontFamily2;
-			font-weight: @fontWeightS;
-			font-size: @fontSizeP;
 			line-height: @fontLineHeightP;
-			max-width: 564px;
+			max-width: 640px;
 		}
 	}
 	@media (min-width: @screenDesktop) {
+		&__header {
+			font-size: @fontSizeH2;
+			max-width: 940px;
+		}
+		&__paragraph {
+			max-width: 564px;
+		}
 	}
 }

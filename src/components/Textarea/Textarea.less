@@ -3,22 +3,14 @@
 @import '../../styles/variables.less';
 
 .Textarea {
-	&__input-item {
-		.flexColumnWithGap(8px);
-		align-items: flex-start;
-	}
 	&__label {
 		font-family: @fontFamily2;
-		font-weight: @fontSizeLabel;
-		font-size: @fontWeightLabel;
+		font-weight: @fontWeightLabel;
+		font-size: @fontSizeLabel;
 		line-height: @fontLineHeightLabel;
 	}
-	&__input-holder {
-		.flexColumnWithGap(2px);
-		align-items: flex-start;
-		width: 768px;
-	}
 	&__input {
+		display: block;
 		padding: 0px 20px 0px 16px;
 		width: 100%;
 		height: 48px;
@@ -31,11 +23,31 @@
 		height: 321px;
 		padding: 10px 20px 10px 16px;
 	}
-	&__input--error {
-		border: @borderInputErr;
+	@media (min-width: @screenTablet) {
+		&__input-item {
+			.flexColumnWithGap(8px);
+			align-items: flex-start;
+		}
+
+		&__input-holder {
+			.flexColumnWithGap(2px);
+			align-items: flex-start;
+			width: 568px;
+		}
+
+		&__input--error {
+			border: @borderInputErr;
+		}
+		&__error-text {
+			color: @colorReddish;
+		}
 	}
-	&__error-text {
-		color: @colorReddish;
+	@media (min-width: @screenDesktop) {
+		@media (min-width: @screenDesktop) {
+			&__input-holder {
+				width: 768px;
+			}
+		}
 	}
 }
 

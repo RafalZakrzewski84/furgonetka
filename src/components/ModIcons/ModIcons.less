@@ -5,10 +5,33 @@
 .ModIcons {
 	background-color: @colorBluish;
 
-	@media (min-width: @screenTablet) {
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 0px 32px;
+		gap: 10px;
+	}
+	&__item {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 0px;
+		gap: 5px;
+		max-width: 160px;
+	}
+	&__text-container {
+		text-align: center;
+	}
+	&__text {
+		font-family: @fontFamily2;
+		font-weight: @fontWeightS;
+		font-size: 13px;
 	}
 
-	@media (min-width: @screenDesktop) {
+	@media (min-width: @screenTablet) {
 		&__container {
 			display: flex;
 			flex-direction: row;
@@ -36,5 +59,8 @@
 			font-size: @fontSizeP;
 			line-height: @fontLineHeightP;
 		}
+	}
+
+	@media (min-width: @screenDesktop) {
 	}
 }

@@ -3,14 +3,43 @@
 @import '../../styles/variables.less';
 
 .HeaderBasic {
-	&__box-content {
-	}
+	margin-top: 20px;
 
-	&__marker {
+	&__topCaption {
+		display: none;
 	}
 
 	&__img {
-		width: 100%;
+		display: block;
+		margin: 0 auto;
+		width: 80%;
+	}
+	&__box {
+		margin: 0 auto;
+		margin-bottom: 40px;
+	}
+	&__box-content {
+		margin-bottom: 20px;
+	}
+	&__h1Text {
+		font-weight: @fontWeightX;
+		font-size: @fontSizeH1Small;
+		letter-spacing: -0.035em;
+		text-align: center;
+	}
+	&__h1Span {
+		font-weight: @fontWeightS;
+		font-style: italic;
+	}
+	&__marker {
+		display: none;
+	}
+	&__headerText {
+		font-family: @fontFamily2;
+		font-weight: @fontWeightS;
+		font-size: (@fontSizeHeaderText - 4px);
+		line-height: @fontLineHeightHeaderText;
+		text-align: center;
 	}
 
 	@media (min-width: @screenTablet) {
@@ -19,9 +48,17 @@
 			flex-direction: row;
 			justify-content: space-between;
 		}
+		&__img {
+			display: inline;
+			margin: 0;
+			width: 100%;
+		}
+		&__box {
+			margin: 0;
+		}
 
 		&__box-container {
-			.flexColumnWithGap(24px);
+			.flexColumnWithGap(0);
 		}
 
 		&__box-content {
@@ -34,18 +71,57 @@
 			isolation: isolate;
 		}
 		&__topCaption {
+			display: block;
 			font-weight: @fontWeightS;
 			font-size: @fontSizeTopCaption;
 		}
 		&__h1Text {
 			font-weight: @fontWeightX;
-			font-size: @fontSizeH1;
+			font-size: @fontSizeH1Small;
 			line-height: @fontLineHeightH12;
-			letter-spacing: -0.035em;
+			text-align: left;
 		}
 		&__h1Span {
 			font-weight: @fontWeightS;
 			font-style: italic;
+		}
+		&__marker {
+			display: inline;
+			position: absolute;
+			width: 180px;
+			height: 21px;
+			left: 0px;
+			top: 82px;
+			z-index: -1;
+		}
+
+		&__headerText {
+			font-family: @fontFamily2;
+			font-weight: @fontWeightS;
+			font-size: (@fontSizeHeaderText - 4px);
+			line-height: (@fontLineHeightHeaderText - 5px);
+			text-align: left;
+		}
+	}
+
+	@media (min-width: @screenDesktop) {
+		&__box-container {
+			.flexColumnWithGap(24px);
+		}
+		&__h1Text {
+			font-weight: @fontWeightX;
+			font-size: @fontSizeH1;
+			line-height: @fontLineHeightH12;
+		}
+		&__h1Span {
+			font-weight: @fontWeightS;
+			font-style: italic;
+		}
+		&__headerText {
+			font-family: @fontFamily2;
+			font-weight: @fontWeightS;
+			font-size: @fontSizeHeaderText;
+			line-height: @fontLineHeightHeaderText;
 		}
 		&__marker {
 			position: absolute;
@@ -55,15 +131,6 @@
 			top: 156px;
 			z-index: -1;
 		}
-		&__headerText {
-			font-family: @fontFamily2;
-			font-weight: @fontWeightS;
-			font-size: @fontSizeHeaderText;
-			line-height: @fontLineHeightHeaderText;
-		}
-	}
-
-	@media (min-width: @screenDesktop) {
 	}
 }
 

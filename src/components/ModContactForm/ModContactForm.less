@@ -4,8 +4,27 @@
 
 .ModContactForm {
 	background-color: @colorBluish;
+	&__header {
+		font-family: @fontFamily1;
+		font-weight: @fontWeightM;
+		font-size: @fontSizeH2Small;
+		line-height: @fontLineHeightH12;
+		text-align: center;
+		margin-bottom: 10px;
+	}
 	&__span {
 		font-style: italic;
+	}
+	&__paragraph {
+		text-align: center;
+		padding-bottom: 20px;
+		font-family: @fontFamily2;
+		font-weight: @fontWeightS;
+		font-size: @fontSizeP;
+		line-height: (@fontLineHeightP - 30%);
+	}
+	&__button-container {
+		padding: @spacingS 0;
 	}
 
 	@media (min-width: @screenTablet) {
@@ -18,6 +37,9 @@
 		&__content {
 			.flexColumnWithGap(16px);
 			text-align: center;
+		}
+		&__button-container {
+			padding: 0;
 		}
 		&__header {
 			font-family: @fontFamily1;
@@ -60,9 +82,6 @@
 				transform: scale(0.9);
 			}
 		}
-	}
-
-	@media (min-width: @screenDesktop) {
 	}
 }
 

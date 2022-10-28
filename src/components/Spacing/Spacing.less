@@ -5,24 +5,24 @@
 .Spacing-- {
 	width: 100%;
 	&L {
-		height: (@spacingL / 4);
+		height: @spacingLMob;
 	}
 	&M {
-		height: (@spacingM / 4);
+		height: @spacingMMob;
 	}
 	&S {
-		height: (@spacingS / 4);
+		height: @spacingSMob;
 	}
 
 	@media (min-width: @screenTablet) {
 		&L {
-			height: (@spacingL / 2);
+			height: @spacingLTab;
 		}
 		&M {
-			height: (@spacingM / 2);
+			height: @spacingMTab;
 		}
 		&s {
-			height: (@spacingS / 2);
+			height: @spacingSTab;
 		}
 	}
 	@media (min-width: @screenDesktop) {

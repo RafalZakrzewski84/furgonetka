@@ -10,7 +10,7 @@ function ModLogos({ logos }) {
 				<div className="ModLogos__container">
 					{logos.map((logo, idx) => (
 						<div key={idx} className="ModLogos__img-container">
-							<img src={logo} alt="ModLogo" />
+							<img className="ModLogos__img" src={logo} alt="ModLogo" />
 						</div>
 					))}
 				</div>

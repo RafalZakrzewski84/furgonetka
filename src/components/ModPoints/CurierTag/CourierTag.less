@@ -3,6 +3,14 @@
 @import '../../../styles/variables.less';
 
 .CourierTag {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 4px 8px;
+	border-radius: @borderRadiusIcon;
+	margin-bottom: 5px;
+
 	&--inpost {
 		background-color: @colorIconYellow;
 	}
@@ -32,7 +40,6 @@
 		align-items: center;
 		padding: 0px 8px;
 		border-radius: @borderRadiusIcon;
-
 		&__text {
 			font-family: @fontFamily2;
 			font-weight: @fontWeightL;
