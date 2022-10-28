@@ -48,9 +48,9 @@ function Input({ label, type, id, errText, toggleClass, setValue, setForm }) {
 					id={id}
 					type={type}
 					name={id}
+					value={setValue}
 					onChange={handleChange}
 					onBlur={handleBlur}
-					value={setValue}
 				/>
 				{errText && <p className="Input__error-text">{errText}</p>}
 			</div>

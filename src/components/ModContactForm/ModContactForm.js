@@ -29,11 +29,15 @@ function ModContactForm({ texts }) {
 	useEffect(() => {
 		//validation based on input change
 		//phone validation
+		const phoneRegExp = /\+48\d{9}/;
 		if (form.phone === '') {
 			// err = true;
 			setPhoneErrText('wpisz numer telefonu');
 			setPhoneToggleClass('invalid');
-		} else if (form.phone !== '' && form.phone !== undefined) {
+		} else if (form.phone !== undefined && !phoneRegExp.test(form.phone)) {
+			setPhoneErrText('format numeru +48XXXXXXXXX');
+			setPhoneToggleClass('invalid');
+		} else if (form.phone !== '' && phoneRegExp.test(form.phone)) {
 			setPhoneErrText('');
 			setPhoneToggleClass('valid');
 		}
