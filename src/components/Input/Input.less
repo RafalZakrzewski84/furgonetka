@@ -51,10 +51,22 @@
 			border: @borderInput;
 			border-radius: @borderRadiusBtn;
 		}
+		&__input--error {
+			border: @borderInputErr;
+		}
+		&__input--noError {
+			border: @borderInputNoErr;
+		}
 	}
 	@media (min-width: @screenDesktop) {
 		&__input-holder {
 			width: 768px;
+		}
+		&__input--error {
+			border: @borderInputErr;
+		}
+		&__input--noError {
+			border: @borderInputNoErr;
 		}
 	}
 }

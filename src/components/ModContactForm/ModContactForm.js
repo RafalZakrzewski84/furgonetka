@@ -172,7 +172,7 @@ function ModContactForm({ texts }) {
 										setForm={setForm}
 									/>
 									<Input
-										label="Twój Imię"
+										label="Twóje imię"
 										type="text"
 										id="name"
 										errText={nameErrText}
@@ -181,7 +181,7 @@ function ModContactForm({ texts }) {
 										setForm={setForm}
 									/>
 									<Input
-										label="Twój nazwisko / nazwa firmy"
+										label="Twóje nazwisko / nazwa firmy"
 										type="text"
 										id="company"
 										errText={companyErrText}
@@ -190,7 +190,7 @@ function ModContactForm({ texts }) {
 										setForm={setForm}
 									/>
 									<Input
-										label="Twój adres e-mail"
+										label="Twóje adres e-mail"
 										type="email"
 										id="email"
 										errText={mailErrText}
@@ -212,7 +212,7 @@ function ModContactForm({ texts }) {
 						</form>
 					) : (
 						<div className="ModContactForm__content-msg-sent">
-							<h2 className="ModContactForm__header">Wiadomość Wysłana</h2>
+							<h2 className="ModContactForm__header">Wiadomość wysłana</h2>
 							<p className="ModContactForm__paragraph">
 								Wkrótce się z Tobą skontaktujemy, żeby porozmawiać o ofercie.
 							</p>
